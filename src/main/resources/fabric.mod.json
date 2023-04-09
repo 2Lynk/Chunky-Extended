@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "chunkyextended",
   "version": "${version}",
 
-  "name": "The inner cirlce - mod",
-  "description": "Mod voor onze minecraft server. Hier komt van alles in.",
+  "name": "Chunky extended",
+  "description": "Mod that adds some functionality to Chunky",
   "authors": [
     "2Lynk / zalteroth!"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/2Lynk",
+    "sources": "https://github.com/2Lynk/chunky-extended-fabric.1.19"
   },
 
   "license": "CC0-1.0",
@@ -19,12 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.fabricmc.chunky_extended.main"
     ]
   },
-  "mixins": [
-    "modid.mixins.json"
-  ],
+
 
   "depends": {
     "fabricloader": ">=0.14.10",
