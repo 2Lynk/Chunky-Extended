@@ -1,7 +1,3 @@
-<a href="https://modrinth.com/mod/fabric-api">
-<img width="150" src="https://raw.githubusercontent.com/kerudion/chunksfadein/main/readme-assets/req_fabric.png" alt="Requires Fabric API">
-</a>
-
 ![GitHub all releases](https://img.shields.io/github/downloads/2lynk/JoinJail/total?style=for-the-badge)
 
 
