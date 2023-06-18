@@ -1,6 +1,3 @@
-![GitHub all releases](https://img.shields.io/github/downloads/2lynk/JoinJail/total?style=for-the-badge)
-
-
 # Ce (Chunky-extend)
 
 A small extension for Chunky
