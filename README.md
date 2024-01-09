@@ -23,3 +23,6 @@ If you do not know the awesome mod that is Chunky please check them out at: http
 /chunky-extend disable
 
 /chunky-extend status
+
+## Download
+https://modrinth.com/mod/chunky-extension/versions
