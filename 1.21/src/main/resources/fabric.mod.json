@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "chunky-extended",
+	"version": "${version}",
+	"name": "Chunky Extended",
+	"description": "Mod that adds some functionality to Chunky",
+	"authors": [
+		"2Lynk / zalteroth!"
+	],
+	"contact": {
+		"homepage": "https://2lynk.dev",
+		"sources": "https://github.com/2Lynk/chunky-extended"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/chunky-extended/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.2lynk.main"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
