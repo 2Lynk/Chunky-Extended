@@ -17,9 +17,9 @@ public class Commands {
         LiteralCommandNode<ServerCommandSource> register = dispatcher.register(CommandManager.literal("chunky-extend")
             .executes(context -> {
                 // For versions below 1.19, replace "Text.literal" with "new LiteralText".
-                context.getSource().sendMessage(Text.literal("chunky-extend enable - Enable auto stop and start"));
-                context.getSource().sendMessage(Text.literal("chunky-extend disable - Disable auto stop and start"));
-                context.getSource().sendMessage(Text.literal("chunky-extend status - Displays status"));
+                context.getSource().getPlayer().sendMessage(Text.literal("chunky-extend enable - Enable auto stop and start"));
+                context.getSource().getPlayer().sendMessage(Text.literal("chunky-extend disable - Disable auto stop and start"));
+                context.getSource().getPlayer().sendMessage(Text.literal("chunky-extend status - Displays status"));
                 return 0;
             })
             .then(CommandManager.literal("enable").executes(Commands::enable))
