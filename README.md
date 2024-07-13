@@ -14,3 +14,6 @@ This means you can configure Chunky and run it without having to worry about cau
 
 /chunky-extend status
 
+
+## Releases
+https://modrinth.com/mod/chunky-extension
