@@ -1,0 +1,51 @@
+# gradle
+.gradle/
+build/
+out/
+classes/
+local.properties
+
+# loader dev run directories
+run/
+runs/
+run-client/
+run-server/
+logs/
+
+# eclipse / forge generated
+.settings/
+.classpath
+.project
+bin/
+.eclipse/
+*.launch
+runClient*.txt
+runServer*.txt
+
+# idea
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+.vscode/
+
+# macos
+*.DS_Store
+
+# java
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+
+# publish tokens
+scripts/.mr_token
+scripts/.cf_token
+scripts/.cf_project_id
+scripts/.cf_uploaded.json
+scripts/__pycache__/
+
+# build artifacts
+*.zip

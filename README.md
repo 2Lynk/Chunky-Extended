@@ -16,4 +16,4 @@ This means you can configure Chunky and run it without having to worry about cau
 
 
 ## Releases
-https://modrinth.com/mod/chunky-extension
+https://modrinth.com/project/LFJf0Klb

@@ -1,0 +1,84 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.minecraftforge.gradle'
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+minecraft {
+    runs {
+        configureEach {
+            workingDir = layout.projectDirectory.dir('run')
+            systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
+            systemProperty 'forge.enabledGameTestNamespaces', mod_id
+        }
+
+        register('client')
+
+        register('server') {
+            args '--nogui'
+        }
+
+        register('gameTestServer')
+
+        register('data') {
+            workingDir = layout.projectDirectory.dir('run-data')
+            args '--mod', mod_id, '--all', '--output', layout.projectDirectory.dir('src/generated/resources'), '--existing', layout.projectDirectory.dir('src/main/resources')
+        }
+    }
+}
+
+repositories {
+    minecraft.mavenizer(it)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
+}
+
+dependencies {
+    implementation minecraft.dependency("net.minecraftforge:forge:${minecraft_version}-${forge_version}")
+}
+
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements'].each { variant ->
+    configurations.named("$variant") {
+        attributes {
+            attribute(loaderAttribute, 'forge')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant ->
+        configurations.named("$variant") {
+            attributes {
+                attribute(loaderAttribute, 'forge')
+            }
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(JavaExec).configureEach {
+    if (name != 'runClient') {
+        return
+    }
+
+    dependsOn(tasks.named('jar'))
+
+    doFirst {
+        def mainOutput = sourceSets.main.output
+        def classesDirs = mainOutput.classesDirs.files
+        def resourcesDir = mainOutput.resourcesDir
+        def filteredClasspath = classpath.files.findAll { file ->
+            !classesDirs.contains(file) && file != resourcesDir
+        }
+
+        classpath = files(filteredClasspath, tasks.named('jar', Jar).get().archiveFile.get().asFile)
+    }
+}
+
+dependencies { implementation "codx.codxlib:codxlib-forge:${codxlib_version}" }
